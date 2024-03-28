@@ -1,16 +1,5 @@
 #!/bin/bash
+# The script takes a URL as input, sends request to URL, and displays size of the body of the response in bytes.
+url=$1
+curl -sI $url | grep -i Content-Length | awk '{print $2}'
 
-if [ -z "$1" ]; then
-    echo "Please provide a URL as an argument."
-    exit 1
-fi
-
-response=$(curl -sI "$1" | grep -i Content-Length | awk '{print $2}' | tr -d '\r')
-if [ -z "$response" ]; then
-    echo "Failed to get response from URL."
-    exit 1
-fi
-
-echo "Size of the response body: $response bytes"
-
-rm -f temp_response.txt

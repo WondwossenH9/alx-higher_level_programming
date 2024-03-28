@@ -1,14 +1,3 @@
 #!/bin/bash
-
-if [ -z "$1" ]; then
-    echo "Please provide a URL as the first argument."
-    exit 1
-fi
-
-response=$(curl -s -X DELETE "$1" -o temp_response.txt)
-
-echo "Response body:"
-cat temp_response.txt
-
-# Clean up the temporary file
-rm -f temp_response.txt
+# This script sends a DELETE request to the URL provided and displays the body of the response.
+curl -s -X DELETE $1

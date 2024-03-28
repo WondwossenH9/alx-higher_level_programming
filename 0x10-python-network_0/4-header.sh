@@ -1,13 +1,3 @@
 #!/bin/bash
-
-if [ -z "$1" ]; then
-    echo "Please provide a URL as the first argument."
-    exit 1
-fi
-
-response=$(curl -s -H "X-School-User-Id: 98" -o temp_response.txt "$1")
-
-echo "Response body:"
-cat temp_response.txt
-
-rm -f temp_response.txt
+# This script sends a GET request to the URL provided and displays the body of the response.
+curl -s -H "X-School-User-Id: 98" $1
